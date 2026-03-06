@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Waleed I. Waseer | Electromagnetics & RF Research</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400;500&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #060810;
+    --surface: #0c1020;
+    --card: #111827;
+    --border: rgba(100,180,255,0.12);
+    --accent: #4a9eff;
+    --accent2: #7fcdff;
+    --gold: #c9a84c;
+    --text: #e8edf5;
+    --muted: #6b7a94;
+    --faint: rgba(74,158,255,0.06);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Crimson Pro', Georgia, serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.7;
+  }
+
+  /* ── CANVAS BG ── */
+  #wave-canvas {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(6,8,16,0.85);
+    backdrop-filter: blur(20px);
+  }
+
+  .nav-logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--accent2); }
+
+  /* ── SECTIONS ── */
+  section {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 60px 80px;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .hero-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 7vw, 100px);
+    font-weight: 300;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.4s forwards;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent2);
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.5vw, 28px);
+    font-weight: 300;
+    color: var(--muted);
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.6s forwards;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-desc {
+    max-width: 600px;
+    font-size: 18px;
+    color: rgba(232,237,245,0.72);
+    margin-bottom: 50px;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.8s forwards;
+    line-height: 1.8;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 20px;
+    opacity: 0;
+    animation: fadeUp 0.9s 1s forwards;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    background: var(--accent);
+    color: #060810;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--accent2);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px rgba(74,158,255,0.3);
+  }
+
+  .btn-outline {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid rgba(74,158,255,0.4);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-block;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--accent);
+    background: rgba(74,158,255,0.08);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 60px;
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+    opacity: 0;
+    animation: fadeUp 0.9s 1.2s forwards;
+    flex-wrap: wrap;
+  }
+
+  .stat-item .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .stat-item .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border) 30%, var(--border) 70%, transparent);
+    margin: 0;
+  }
+
+  /* ── SECTION WRAPPER ── */
+  .section-wrap {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 100px 60px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    margin-bottom: 64px;
+  }
+
+  .section-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 300;
+    letter-spacing: -0.01em;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 19px;
+    color: rgba(232,237,245,0.8);
+    margin-bottom: 24px;
+    line-height: 1.85;
+  }
+
+  .about-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .info-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 24px 28px;
+  }
+
+  .info-card-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: var(--accent);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .info-card-value {
+    font-size: 16px;
+    color: var(--text);
+  }
+
+  /* ── EXPERIENCE ── */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 200px 1px 1fr;
+    gap: 0 40px;
+    position: relative;
+  }
+
+  .timeline-date {
+    text-align: right;
+    padding: 32px 0;
+  }
+
+  .timeline-date .period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .timeline-date .org {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .timeline-line {
+    background: var(--border);
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .timeline-dot {
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    position: absolute;
+    top: 38px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 20px rgba(74,158,255,0.6);
+  }
+
+  .timeline-content {
+    padding: 28px 0 48px;
+  }
+
+  .timeline-role {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+
+  .timeline-bullets {
+    list-style: none;
+  }
+
+  .timeline-bullets li {
+    font-size: 16px;
+    color: rgba(232,237,245,0.72);
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 8px;
+    line-height: 1.7;
+  }
+
+  .timeline-bullets li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 12px;
+  }
+
+  /* ── RESEARCH / SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .skill-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+
+  .skill-card:hover::before { transform: scaleX(1); }
+  .skill-card:hover { border-color: rgba(100,180,255,0.3); transform: translateY(-4px); }
+
+  .skill-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .skill-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+
+  .skill-card p {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ── PUBLICATIONS ── */
+  .pub-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .pub-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 28px 32px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 24px;
+    align-items: start;
+    transition: border-color 0.3s;
+  }
+
+  .pub-item:hover { border-color: rgba(100,180,255,0.3); }
+
+  .pub-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    padding-top: 4px;
+    min-width: 45px;
+  }
+
+  .pub-content .pub-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .pub-content .pub-journal {
+    font-size: 14px;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+
+  .pub-badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    background: rgba(201,168,76,0.15);
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3);
+    margin-top: 4px;
+  }
+
+  .pub-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    display: inline-block;
+    margin-top: 8px;
+  }
+
+  .pub-link:hover { opacity: 1; }
+
+  /* ── CONTACT ── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .contact-intro {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3vw, 36px);
+    font-weight: 300;
+    line-height: 1.4;
+    margin-bottom: 32px;
+  }
+
+  .contact-items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.3s;
+  }
+
+  .contact-item:hover {
+    border-color: rgba(74,158,255,0.4);
+    background: rgba(74,158,255,0.06);
+  }
+
+  .contact-icon {
+    font-size: 18px;
+    width: 36px;
+    text-align: center;
+  }
+
+  .contact-detail .clabel {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .contact-detail .cval {
+    font-size: 15px;
+    color: rgba(232,237,245,0.85);
+  }
+
+  /* ── PLATFORM SECTION ── */
+  .platform-section {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .platform-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .platform-card {
+    padding: 28px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    transition: all 0.3s;
+  }
+
+  .platform-card:hover {
+    border-color: rgba(74,158,255,0.35);
+    transform: translateY(-3px);
+  }
+
+  .platform-card .p-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    color: var(--accent2);
+  }
+
+  .platform-card .p-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+
+  .platform-card .p-type {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    position: relative;
+    z-index: 1;
+    padding: 40px 60px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  footer p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { gap: 20px; }
+    #hero, .section-wrap { padding-left: 24px; padding-right: 24px; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .timeline-item { grid-template-columns: 1fr; }
+    .timeline-line { display: none; }
+    .timeline-date { text-align: left; padding: 0 0 8px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="wave-canvas"></canvas>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">W. I. Waseer · PHD</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero-section" style="background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(74,158,255,0.07) 0%, transparent 70%);">
+  <div id="hero">
+    <div class="hero-tag">// Postdoctoral Fellow · UESTC, China</div>
+    <h1 class="hero-name">Dr. Waleed<br><em>I. Waseer</em></h1>
+    <p class="hero-title">Electromagnetics · RF & Microwave Systems · Computational Modelling</p>
+    <p class="hero-desc">
+      Investigating the frontiers of electromagnetic wave propagation, spintronic materials, and AI-driven metasurface design. 9+ years advancing nonlinear dynamics, anisotropic media, and near-field simulations.
+    </p>
+    <div class="hero-ctas">
+      <a href="#publications" class="btn-primary">View Publications</a>
+      <a href="mailto:Waleedwaseer@gmail.com" class="btn-outline">Get in Touch</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="num">20+</div>
+        <div class="label">Publications</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">9+</div>
+        <div class="label">Years Research</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">3</div>
+        <div class="label">Countries</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">PHD</div>
+        <div class="label">ECE, 2023</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <span class="section-number">01</span>
+      <h2 class="section-title">About</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>Dr. Waleed I. Waseer is a Postdoctoral Fellow at the University of Electronic Science and Technology of China (UESTC), where he investigates nonlinear dynamics of Hopfions in chiral magnets and Kagome Spin Ice systems.</p>
+        <p>His doctoral research at COMSATS University Islamabad proposed a novel class of waves — <em>Ghost Waves</em> — exhibiting lossy behavior within lossless media, a fundamental contribution to electromagnetic theory.</p>
+        <p>He combines deep theoretical work in wave propagation and anisotropic materials with applied AI-driven inverse modeling for metasurface design, bridging classical electromagnetics and modern machine learning.</p>
+      </div>
+      <div class="about-sidebar reveal">
+        <div class="info-card">
+          <div class="info-card-label">Current Position</div>
+          <div class="info-card-value">Postdoctoral Fellow, UESTC, China</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">PhD Dissertation</div>
+          <div class="info-card-value" style="font-style:italic;font-size:15px;">"Non-uniform Plane Wave (Ghost Wave) in General Anisotropic Medium"</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Key Tools</div>
+          <div class="info-card-value">COMSOL · CST · MuMax3 · Python (PyTorch) · MATLAB</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Journal Reviewer</div>
+          <div class="info-card-value" style="font-size:14px;">Optics Express · IEEE TAP · JOSA A/B · Applied Optics</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <span class="section-number">02</span>
+      <h2 class="section-title">Experience</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="timeline">
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">
+          <span class="period">Mar 2024 – Present</span>
+          <span class="org">UESTC, China</span>
+        </div>
+        <div class="timeline-line"><div class="timeline-dot"></div></div>
+        <div class="timeline-content">
+          <div class="timeline-role">Postdoctoral Fellow</div>
+          <ul class="timeline-bullets">
+            <li>Nonlinear dynamics of Hopfions in chiral magnets and Kagome Spin Ice</li>
+            <li>Nonlinear wave interactions in magnetic systems for RF/microwave processing</li>
+            <li>AI-driven inverse models for Artificial Spin Ice</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">
+          <span class="period">2023 – 2024</span>
+          <span class="org">COMSATS, Pakistan</span>
+        </div>
+        <div class="timeline-line"><div class="timeline-dot"></div></div>
+        <div class="timeline-content">
+          <div class="timeline-role">Research Associate</div>
+          <ul class="timeline-bullets">
+            <li>Metamaterial-based sensors for chemical detection and biosensing</li>
+            <li>AI-driven inverse models for metasurface absorbers, reducing FDTD/FEM compute costs</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">
+          <span class="period">Jan–Jul 2022</span>
+          <span class="org">Penn State, USA</span>
+        </div>
+        <div class="timeline-line"><div class="timeline-dot"></div></div>
+        <div class="timeline-content">
+          <div class="timeline-role">Research Scholar</div>
+          <ul class="timeline-bullets">
+            <li>Field continuity in exceptional surface waves across microwave and optical regimes</li>
+            <li>Thermal hysteresis in surface plasmon-polariton wave propagation</li>
+            <li>Scattering analysis of spherical objects for waveguide applications</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">
+          <span class="period">Sep 2020 – Sep 2023</span>
+          <span class="org">QAU, Pakistan</span>
+        </div>
+        <div class="timeline-line"><div class="timeline-dot"></div></div>
+        <div class="timeline-content">
+          <div class="timeline-role">Lecturer</div>
+          <ul class="timeline-bullets">
+            <li>Electricity & Magnetism, Engineering Mathematics</li>
+            <li>Analog Circuits Lab, Communication Systems Lab</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- RESEARCH AREAS -->
+<section id="research">
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <span class="section-number">03</span>
+      <h2 class="section-title">Research Areas</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <span class="skill-icon">〰️</span>
+        <h3>Electromagnetics & Wave Propagation</h3>
+        <p>Ghost waves in anisotropic media, exceptional surface waves, non-uniform plane waves, Goos–Hänchen and Imbert–Fedorov shifts.</p>
+      </div>
+      <div class="skill-card reveal">
+        <span class="skill-icon">🔬</span>
+        <h3>Metasurfaces & Metamaterials</h3>
+        <p>Metamaterial-based sensors for chemical and biosensing, MXene solar absorbers, epsilon-near-zero slabs, graphene-coated structures.</p>
+      </div>
+      <div class="skill-card reveal">
+        <span class="skill-icon">🧲</span>
+        <h3>Spintronics & Magnetic Systems</h3>
+        <p>Hopfion dynamics in chiral magnets, Kagome Spin Ice, spin wave propagation, topological solitons, magnon interactions.</p>
+      </div>
+      <div class="skill-card reveal">
+        <span class="skill-icon">🤖</span>
+        <h3>AI-Driven Electromagnetic Design</h3>
+        <p>Deep neural network inverse modeling for metasurface absorbers, multi-channel spectral refinement, reducing FDTD simulation reliance.</p>
+      </div>
+      <div class="skill-card reveal">
+        <span class="skill-icon">📡</span>
+        <h3>RF & Microwave Systems</h3>
+        <p>Waveguide modeling, transmission line analysis, near-field simulations, signal processing for integrated photonic sensing.</p>
+      </div>
+      <div class="skill-card reveal">
+        <span class="skill-icon">⚙️</span>
+        <h3>Computational Modelling</h3>
+        <p>FDTD, FEM, COMSOL Multiphysics (RF Module), MuMax3, Python (PyTorch), MATLAB for simulation and data analysis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <span class="section-number">04</span>
+      <h2 class="section-title">Selected Publications</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="pub-list">
+
+      <div class="pub-item reveal">
+        <div class="pub-year">2025</div>
+        <div class="pub-content">
+          <div class="pub-title">Predictive Modeling of MXene-Based Solar Absorbers Using Deep Neural Network</div>
+          <div class="pub-journal">Journal of the Optical Society of America B (JOSA B)</div>
+          <div><span class="pub-badge">Editor's Pick</span></div>
+          <a href="https://doi.org/10.1364/JOSAB.550317" class="pub-link" target="_blank">↗ doi.org/10.1364/JOSAB.550317</a>
+        </div>
+      </div>
+
+      <div class="pub-item reveal">
+        <div class="pub-year">2026</div>
+        <div class="pub-content">
+          <div class="pub-title">Optimizing Spectral Prediction in MXene-Based Metasurfaces Through Multi-Channel Spectral Refinement and Savitzky-Golay Smoothing</div>
+          <div class="pub-journal">arXiv preprint</div>
+          <a href="https://doi.org/10.48550/arXiv.2602.08406" class="pub-link" target="_blank">↗ arXiv:2602.08406</a>
+        </div>
+      </div>
+
+      <div class="pub-item reveal">
+        <div class="pub-year">2025</div>
+        <div class="pub-content">
+          <div class="pub-title">Investigation of the Goos–Hänchen shift in a multilayered bi-anisotropic structure coated with a graphene monolayer</div>
+          <div class="pub-journal">Journal of the Optical Society of America B</div>
+          <div><span class="pub-badge">Editor's Pick</span></div>
+        </div>
+      </div>
+
+      <div class="pub-item reveal">
+        <div class="pub-year">2022</div>
+        <div class="pub-content">
+          <div class="pub-title">Thermal hysteresis in scattering by VO₂ spheres</div>
+          <div class="pub-journal">Journal of the Optical Society of America A (JOSA A)</div>
+          <a href="http://dx.doi.org/10.1364/JOSAA.463159" class="pub-link" target="_blank">↗ doi.org/10.1364/JOSAA.463159</a>
+        </div>
+      </div>
+
+      <div class="pub-item reveal">
+        <div class="pub-year">2022</div>
+        <div class="pub-content">
+          <div class="pub-title">Thermal-hysteresis-affected surface-plasmon-polariton-wave propagation</div>
+          <div class="pub-journal">Materials Letters</div>
+          <a href="https://doi.org/10.1016/j.matlet.2022.132648" class="pub-link" target="_blank">↗ doi.org/10.1016/j.matlet.2022.132648</a>
+        </div>
+      </div>
+
+      <div class="pub-item reveal">
+        <div class="pub-year">2019</div>
+        <div class="pub-content">
+          <div class="pub-title">Non-uniform plane waves (ghost waves) in general anisotropic medium</div>
+          <div class="pub-journal">Optics Communications</div>
+          <a href="https://doi.org/10.1016/j.optcom.2019.124334" class="pub-link" target="_blank">↗ doi.org/10.1016/j.optcom.2019.124334</a>
+        </div>
+      </div>
+
+      <div class="pub-item reveal">
+        <div class="pub-year">2023</div>
+        <div class="pub-content">
+          <div class="pub-title">Continuity of Field Patterns for Exceptional Surface Waves and Exceptional Compound Waves</div>
+          <div class="pub-journal">Springer — Adventures in Contemporary Electromagnetic Theory (Book Chapter)</div>
+          <a href="https://doi.org/10.1007/978-3-031-24617-3_17" class="pub-link" target="_blank">↗ doi.org/10.1007/978-3-031-24617-3_17</a>
+        </div>
+      </div>
+
+      <div class="pub-item reveal">
+        <div class="pub-year">2018</div>
+        <div class="pub-content">
+          <div class="pub-title">Second-order fading statistics of massive-MIMO vehicular radio communication channels</div>
+          <div class="pub-journal">Transactions on Emerging Telecommunications Technologies</div>
+          <a href="https://doi.org/10.1002/ett.3487" class="pub-link" target="_blank">↗ doi.org/10.1002/ett.3487</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PLATFORM SUGGESTIONS -->
+<section class="platform-section">
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <span class="section-number">05</span>
+      <h2 class="section-title">Recommended Platforms</h2>
+      <div class="section-line"></div>
+    </div>
+    <p class="reveal" style="font-size:17px;color:var(--muted);margin-bottom:40px;max-width:680px;">Platforms where you can post your research results, preprints, and engage with the scientific community.</p>
+    <div class="platform-grid">
+      <div class="platform-card reveal">
+        <div class="p-name">ResearchGate</div>
+        <div class="p-desc">Share full-text papers, track citations, connect with collaborators, and get discovered by scientists in your field.</div>
+        <div class="p-type">Academic Network</div>
+      </div>
+      <div class="platform-card reveal">
+        <div class="p-name">Google Scholar</div>
+        <div class="p-desc">Create a verified profile aggregating all your publications with citation counts and h-index tracking.</div>
+        <div class="p-type">Citation Index</div>
+      </div>
+      <div class="platform-card reveal">
+        <div class="p-name">arXiv</div>
+        <div class="p-desc">Post preprints instantly for free open-access sharing in physics, electrical engineering, and CS before journal publication.</div>
+        <div class="p-type">Preprint Server</div>
+      </div>
+      <div class="platform-card reveal">
+        <div class="p-name">ORCID</div>
+        <div class="p-desc">Establish a persistent digital identity linking all your research outputs, affiliations, and funding across publishers.</div>
+        <div class="p-type">Researcher ID</div>
+      </div>
+      <div class="platform-card reveal">
+        <div class="p-name">Academia.edu</div>
+        <div class="p-desc">Upload papers and preprints to reach a broad academic audience with analytics on who reads your work.</div>
+        <div class="p-type">Paper Sharing</div>
+      </div>
+      <div class="platform-card reveal">
+        <div class="p-name">LinkedIn</div>
+        <div class="p-desc">Share research milestones, conference updates, and publications to build industry and academic visibility.</div>
+        <div class="p-type">Professional Network</div>
+      </div>
+      <div class="platform-card reveal">
+        <div class="p-name">Twitter / X</div>
+        <div class="p-desc">Engage in #ScienceTwitter, share findings with concise threads, and connect with global electromagnetics researchers.</div>
+        <div class="p-type">Science Communication</div>
+      </div>
+      <div class="platform-card reveal">
+        <div class="p-name">Zenodo</div>
+        <div class="p-desc">Archive datasets, code, and simulation files alongside your papers with DOIs — ideal for COMSOL or MuMax3 outputs.</div>
+        <div class="p-type">Data Repository</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <span class="section-number">06</span>
+      <h2 class="section-title">Contact</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <p class="contact-intro">Open to collaborations in electromagnetics, spintronics, and AI-driven RF design.</p>
+        <p style="font-size:17px;color:var(--muted);line-height:1.8;">Whether you're a researcher, institution, or industry partner interested in wave propagation, metasurface engineering, or magnetic systems — reach out.</p>
+      </div>
+      <div class="contact-items reveal">
+        <a href="mailto:Waleedwaseer@gmail.com" class="contact-item">
+          <div class="contact-icon">✉</div>
+          <div class="contact-detail">
+            <span class="clabel">Email</span>
+            <span class="cval">Waleedwaseer@gmail.com</span>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/waleedwaseer/" class="contact-item" target="_blank">
+          <div class="contact-icon">in</div>
+          <div class="contact-detail">
+            <span class="clabel">LinkedIn</span>
+            <span class="cval">linkedin.com/in/waleedwaseer</span>
+          </div>
+        </a>
+        <a href="https://twitter.com/waleedwaseer" class="contact-item" target="_blank">
+          <div class="contact-icon">𝕏</div>
+          <div class="contact-detail">
+            <span class="clabel">Twitter / X</span>
+            <span class="cval">@waleedwaseer</span>
+          </div>
+        </a>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div class="contact-detail">
+            <span class="clabel">Phone</span>
+            <span class="cval">+92 345 721 7173</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2024 Dr. Waleed I. Waseer · UESTC, China</p>
+  <p>BEng · MEng · PHD · Electromagnetics & RF Research</p>
+</footer>
+
+<script>
+// ── WAVE CANVAS ──
+const canvas = document.getElementById('wave-canvas');
+const ctx = canvas.getContext('2d');
+let W, H, t = 0;
+
+function resize() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+function drawWaves() {
+  ctx.clearRect(0, 0, W, H);
+  const waves = [
+    { amp: 60, freq: 0.008, speed: 0.4, y: H * 0.35, color: 'rgba(74,158,255,0.15)', lw: 1.5 },
+    { amp: 40, freq: 0.012, speed: 0.6, y: H * 0.55, color: 'rgba(127,205,255,0.10)', lw: 1 },
+    { amp: 80, freq: 0.005, speed: 0.25, y: H * 0.72, color: 'rgba(74,158,255,0.08)', lw: 2 },
+    { amp: 30, freq: 0.018, speed: 0.8, y: H * 0.2, color: 'rgba(201,168,76,0.08)', lw: 1 },
+  ];
+
+  waves.forEach(w => {
+    ctx.beginPath();
+    ctx.lineWidth = w.lw;
+    ctx.strokeStyle = w.color;
+    for (let x = 0; x <= W; x += 2) {
+      const y = w.y + Math.sin(x * w.freq + t * w.speed) * w.amp;
+      x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+  });
+
+  t += 0.02;
+  requestAnimationFrame(drawWaves);
+}
+drawWaves();
+
+// ── SCROLL REVEAL ──
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 60);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
