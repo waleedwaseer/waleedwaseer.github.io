@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dr. Waleed I. Waseer | Electromagnetics & RF Research</title>
+<title>Dr. Waleed I. Waseer | ML for Magnonics & Nanophotonics</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400;500&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -136,7 +136,7 @@
   }
 
   .hero-desc {
-    max-width: 600px;
+    max-width: 620px;
     font-size: 18px;
     color: rgba(232,237,245,0.72);
     margin-bottom: 50px;
@@ -204,6 +204,30 @@
     animation: fadeUp 0.9s 1.2s forwards;
     flex-wrap: wrap;
   }
+
+  .hero-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.9s 1.1s forwards;
+  }
+
+  .hero-links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .hero-links a:hover { color: var(--accent2); }
+
+  .hero-links-dot { color: var(--border); font-size: 11px; }
 
   .stat-item .num {
     font-family: 'Cormorant Garamond', serif;
@@ -303,6 +327,23 @@
   .info-card-value {
     font-size: 16px;
     color: var(--text);
+  }
+
+  .info-card-value ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .info-card-value li {
+    font-size: 15px;
+    padding: 3px 0;
+    color: rgba(232,237,245,0.85);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
   }
 
   /* ── EXPERIENCE ── */
@@ -439,6 +480,137 @@
     line-height: 1.7;
   }
 
+  .focus-callout {
+    margin-top: 32px;
+    padding: 32px 36px;
+    background: var(--faint);
+    border-left: 2px solid var(--accent);
+  }
+
+  .focus-callout-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--accent2);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .focus-callout p {
+    font-size: 16px;
+    color: rgba(232,237,245,0.78);
+    line-height: 1.8;
+    max-width: 900px;
+  }
+
+  /* ── PROJECTS ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+  }
+
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card:hover { border-color: rgba(100,180,255,0.35); transform: translateY(-4px); }
+
+  .project-media {
+    width: 100%;
+    height: 200px;
+    background: #05070d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .project-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .project-media-placeholder {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .project-body {
+    padding: 26px 28px 28px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-status {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .project-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+
+  .project-desc {
+    font-size: 15px;
+    color: rgba(232,237,245,0.7);
+    line-height: 1.7;
+    margin-bottom: 18px;
+    flex: 1;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .project-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    background: var(--faint);
+    color: var(--accent2);
+    border: 1px solid rgba(74,158,255,0.2);
+  }
+
+  .project-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: opacity 0.2s;
+  }
+
+  .project-link:hover { opacity: 0.7; }
+
   /* ── PUBLICATIONS ── */
   .pub-list {
     display: flex;
@@ -496,6 +668,12 @@
     margin-top: 4px;
   }
 
+  .pub-badge.review {
+    background: rgba(74,158,255,0.12);
+    color: var(--accent2);
+    border: 1px solid rgba(74,158,255,0.3);
+  }
+
   .pub-link {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
@@ -509,6 +687,26 @@
   }
 
   .pub-link:hover { opacity: 1; }
+
+  .pub-subgroup-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 40px 0 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  .pub-item.minor {
+    padding: 18px 24px;
+    opacity: 0.75;
+  }
+
+  .pub-item.minor .pub-title {
+    font-size: 15px;
+  }
 
   /* ── CONTACT ── */
   .contact-grid {
@@ -680,7 +878,9 @@
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#research">Research</a></li>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#publications">Publications</a></li>
+    <li><a href="#services">Services</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -690,13 +890,20 @@
   <div id="hero">
     <div class="hero-tag">// Postdoctoral Fellow · UESTC, China</div>
     <h1 class="hero-name">Dr. Waleed<br><em>I. Waseer</em></h1>
-    <p class="hero-title">Electromagnetics · RF & Microwave Systems · Computational Modelling</p>
+    <p class="hero-title">Machine Learning · Magnonics · Nanophotonics</p>
     <p class="hero-desc">
-      Investigating the frontiers of electromagnetic wave propagation, spintronic materials, and AI-driven metasurface design. 9+ years advancing nonlinear dynamics, anisotropic media, and near-field simulations.
+      I build AI surrogate models that replace costly micromagnetic and full-wave simulations — driving nonlinear magnon dynamics in topological spin textures and inverse-designing nanophotonic metasurfaces. My work sits at the intersection of deep learning (GANs, DenseNet, cyclic-consistent frameworks) and physical simulation (MuMax3, COMSOL, FDTD/FEM).
     </p>
     <div class="hero-ctas">
-      <a href="#publications" class="btn-primary">View Publications</a>
+      <a href="#projects" class="btn-primary">View Projects</a>
       <a href="mailto:Waleedwaseer@gmail.com" class="btn-outline">Get in Touch</a>
+    </div>
+    <div class="hero-links">
+      <a href="https://github.com/waleedwaseer" target="_blank">GitHub</a>
+      <span class="hero-links-dot">·</span>
+      <a href="https://www.linkedin.com/in/waleedwaseer/" target="_blank">LinkedIn</a>
+      <span class="hero-links-dot">·</span>
+      <a href="https://twitter.com/waleedwaseer" target="_blank">Twitter / X</a>
     </div>
     <div class="hero-stats">
       <div class="stat-item">
@@ -708,8 +915,8 @@
         <div class="label">Years Research</div>
       </div>
       <div class="stat-item">
-        <div class="num">3</div>
-        <div class="label">Countries</div>
+        <div class="num">6</div>
+        <div class="label">Open-Source Repos</div>
       </div>
       <div class="stat-item">
         <div class="num">PHD</div>
@@ -731,9 +938,9 @@
     </div>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p>Dr. Waleed I. Waseer is a Postdoctoral Fellow at the University of Electronic Science and Technology of China (UESTC), where he investigates nonlinear dynamics of Hopfions in chiral magnets and Kagome Spin Ice systems.</p>
-        <p>His doctoral research at COMSATS University Islamabad proposed a novel class of waves — <em>Ghost Waves</em> — exhibiting lossy behavior within lossless media, a fundamental contribution to electromagnetic theory.</p>
-        <p>He combines deep theoretical work in wave propagation and anisotropic materials with applied AI-driven inverse modeling for metasurface design, bridging classical electromagnetics and modern machine learning.</p>
+        <p>Dr. Waleed I. Waseer is a Postdoctoral Fellow at the University of Electronic Science and Technology of China (UESTC), where his current work centers on machine learning for magnonics and nanophotonics — using deep neural networks to model and accelerate the design of complex physical systems that are otherwise prohibitively expensive to simulate.</p>
+        <p>His recent research applies deep neural networks to predict the optical response of MXene-based metasurface solar absorbers, and cyclic-consistent inverse design frameworks to map desired optical responses back onto nanophotonic structures — replacing thousands of FDTD/FEM sweeps with a trained surrogate model. In parallel, he studies the nonlinear dynamics of magnetic Hopfions in chiral ferromagnets and Kagome Spin Ice, using MuMax3 micromagnetic simulation alongside AI-driven inverse models to understand and engineer topological spin textures for frequency-multiplication and magnonic computing applications.</p>
+        <p>This applied AI work is grounded in a doctoral background in classical electromagnetic wave theory from COMSATS University Islamabad, giving his machine-learning models a physics-informed foundation rather than treating them as black boxes.</p>
       </div>
       <div class="about-sidebar reveal">
         <div class="info-card">
@@ -741,16 +948,19 @@
           <div class="info-card-value">Postdoctoral Fellow, UESTC, China</div>
         </div>
         <div class="info-card">
-          <div class="info-card-label">PhD Dissertation</div>
-          <div class="info-card-value" style="font-style:italic;font-size:15px;">"Non-uniform Plane Wave (Ghost Wave) in General Anisotropic Medium"</div>
+          <div class="info-card-label">Current Research Focus</div>
+          <div class="info-card-value">
+            <ul>
+              <li>Nonlinear dynamics of Hopfions in chiral magnets</li>
+              <li>AI inverse models for artificial Kagome spin ice</li>
+              <li>DNN-predicted MXene metasurface absorbers</li>
+              <li>Cyclic surrogate models for nanophotonic inverse design</li>
+            </ul>
+          </div>
         </div>
         <div class="info-card">
           <div class="info-card-label">Key Tools</div>
-          <div class="info-card-value">COMSOL · CST · MuMax3 · Python (PyTorch) · MATLAB</div>
-        </div>
-        <div class="info-card">
-          <div class="info-card-label">Journal Reviewer</div>
-          <div class="info-card-value" style="font-size:14px;">Optics Express · IEEE TAP · JOSA A/B · Applied Optics</div>
+          <div class="info-card-value">PyTorch (GANs, DenseNet) · MuMax3 · COMSOL · CST · MATLAB</div>
         </div>
       </div>
     </div>
@@ -778,9 +988,11 @@
         <div class="timeline-content">
           <div class="timeline-role">Postdoctoral Fellow</div>
           <ul class="timeline-bullets">
-            <li>Nonlinear dynamics of Hopfions in chiral magnets and Kagome Spin Ice</li>
-            <li>Nonlinear wave interactions in magnetic systems for RF/microwave processing</li>
-            <li>AI-driven inverse models for Artificial Spin Ice</li>
+            <li>Research, design, and implementation of nonlinear-dynamics studies of Hopfions in chiral magnets and Kagome Spin Ice, using MuMax3 micromagnetic simulation</li>
+            <li>Development of AI-driven inverse models for artificial spin ice, replacing repeated micromagnetic sweeps with trained surrogate networks</li>
+            <li>Investigation of nonlinear wave interactions in magnetic systems for RF/microwave frequency-conversion applications</li>
+            <li>Preparation of manuscripts for submission to top-ranked journals (e.g., Physical Review Applied) and presentation of findings to the research group</li>
+            <li>Collaboration within a multi-disciplinary group spanning micromagnetics, machine learning, and device physics</li>
           </ul>
         </div>
       </div>
@@ -794,8 +1006,10 @@
         <div class="timeline-content">
           <div class="timeline-role">Research Associate</div>
           <ul class="timeline-bullets">
-            <li>Metamaterial-based sensors for chemical detection and biosensing</li>
-            <li>AI-driven inverse models for metasurface absorbers, reducing FDTD/FEM compute costs</li>
+            <li>Design and characterization of metamaterial-based sensors for chemical detection and biosensing applications</li>
+            <li>Development of deep-learning inverse models (DenseNet, cyclic-consistent frameworks) for metasurface absorber design, substantially reducing reliance on FDTD/FEM simulation sweeps</li>
+            <li>Co-authorship of journal manuscripts, including work later recognized as an Editor's Pick in JOSA B</li>
+            <li>Mentorship of junior lab members on COMSOL and Python-based simulation workflows</li>
           </ul>
         </div>
       </div>
@@ -809,9 +1023,9 @@
         <div class="timeline-content">
           <div class="timeline-role">Research Scholar</div>
           <ul class="timeline-bullets">
-            <li>Field continuity in exceptional surface waves across microwave and optical regimes</li>
-            <li>Thermal hysteresis in surface plasmon-polariton wave propagation</li>
-            <li>Scattering analysis of spherical objects for waveguide applications</li>
+            <li>Investigation of thermal hysteresis in surface plasmon-polariton wave propagation across phase-change materials</li>
+            <li>Scattering analysis of spherical VO₂ objects for temperature-tunable waveguide applications</li>
+            <li>Collaborative research visit resulting in two peer-reviewed publications (JOSA A, Materials Letters)</li>
           </ul>
         </div>
       </div>
@@ -825,8 +1039,10 @@
         <div class="timeline-content">
           <div class="timeline-role">Lecturer</div>
           <ul class="timeline-bullets">
-            <li>Electricity & Magnetism, Engineering Mathematics</li>
-            <li>Analog Circuits Lab, Communication Systems Lab</li>
+            <li>Lecture planning, preparation, and teaching for Electricity & Magnetism and Engineering Mathematics</li>
+            <li>Supervision of Analog Circuits Lab and Communication Systems Lab sessions</li>
+            <li>Assessment and grading of undergraduate coursework and lab reports</li>
+            <li>Attending departmental meetings and general administrative responsibilities</li>
           </ul>
         </div>
       </div>
@@ -847,35 +1063,114 @@
     </div>
     <div class="skills-grid">
       <div class="skill-card reveal">
-        <span class="skill-icon">〰️</span>
-        <h3>Electromagnetics & Wave Propagation</h3>
-        <p>Ghost waves in anisotropic media, exceptional surface waves, non-uniform plane waves, Goos–Hänchen and Imbert–Fedorov shifts.</p>
-      </div>
-      <div class="skill-card reveal">
-        <span class="skill-icon">🔬</span>
-        <h3>Metasurfaces & Metamaterials</h3>
-        <p>Metamaterial-based sensors for chemical and biosensing, MXene solar absorbers, epsilon-near-zero slabs, graphene-coated structures.</p>
+        <span class="skill-icon">🤖</span>
+        <h3>AI-Driven Inverse Design</h3>
+        <p>Deep neural networks (GANs, DenseNet), cyclic-consistent forward/inverse frameworks, and surrogate models that replace costly FDTD/FEM simulation with trained networks.</p>
       </div>
       <div class="skill-card reveal">
         <span class="skill-icon">🧲</span>
-        <h3>Spintronics & Magnetic Systems</h3>
-        <p>Hopfion dynamics in chiral magnets, Kagome Spin Ice, spin wave propagation, topological solitons, magnon interactions.</p>
+        <h3>Magnonics & Spintronics</h3>
+        <p>Nonlinear dynamics of Hopfions in chiral magnets, Kagome Spin Ice, harmonic generation and frequency multiplication, magnon-mode excitation and control.</p>
       </div>
       <div class="skill-card reveal">
-        <span class="skill-icon">🤖</span>
-        <h3>AI-Driven Electromagnetic Design</h3>
-        <p>Deep neural network inverse modeling for metasurface absorbers, multi-channel spectral refinement, reducing FDTD simulation reliance.</p>
-      </div>
-      <div class="skill-card reveal">
-        <span class="skill-icon">📡</span>
-        <h3>RF & Microwave Systems</h3>
-        <p>Waveguide modeling, transmission line analysis, near-field simulations, signal processing for integrated photonic sensing.</p>
+        <span class="skill-icon">🔬</span>
+        <h3>Nanophotonics & Metasurfaces</h3>
+        <p>MXene-based solar absorbers, epsilon-near-zero slabs, spectral prediction and refinement, metasurface absorber design via deep learning.</p>
       </div>
       <div class="skill-card reveal">
         <span class="skill-icon">⚙️</span>
         <h3>Computational Modelling</h3>
-        <p>FDTD, FEM, COMSOL Multiphysics (RF Module), MuMax3, Python (PyTorch), MATLAB for simulation and data analysis.</p>
+        <p>MuMax3 (GPU micromagnetics), COMSOL Multiphysics, CST Studio Suite, FDTD/FEM methods, Python (PyTorch) and MATLAB for simulation and data analysis.</p>
       </div>
+    </div>
+    <div class="focus-callout reveal">
+      <div class="focus-callout-label">Current Work &amp; Goals</div>
+      <p>Extending cyclic surrogate-assisted frameworks from static metasurface design toward dynamic, time-dependent magnonic systems — using the same forward/inverse network pairing that accelerates optical metasurface design to accelerate the search for Hopfion and spin-ice configurations with targeted nonlinear response. The broader goal is a shared AI toolkit that treats magnon and photon design problems as the same class of inverse problem, cutting simulation cost across both domains.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <span class="section-number">04</span>
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="section-line"></div>
+    </div>
+    <p class="reveal" style="font-size:17px;color:var(--muted);margin-bottom:40px;max-width:680px;">Open-source simulation code and AI models — from micromagnetic solvers to inverse-design frameworks.</p>
+    <div class="projects-grid">
+
+      <div class="project-card reveal">
+        <div class="project-media">
+          <img src="https://raw.githubusercontent.com/waleedwaseer/Hopfion/main/mode_6.15.gif" alt="Hopfion magnon mode simulation" loading="lazy">
+        </div>
+        <div class="project-body">
+          <div class="project-status">Under Review · Physical Review Applied</div>
+          <div class="project-title">Nonlinear Dynamics of Hopfion for Frequency Multiplication</div>
+          <p class="project-desc">MuMax3 micromagnetic simulations of a magnetic Hopfion in a chiral ferromagnetic nanodisk. Characterizes localized breathing/gyrotropic magnon modes and demonstrates second- and third-harmonic generation and fractional-resonance excitation, including thermal and disorder robustness studies.</p>
+          <div class="project-tags">
+            <span class="project-tag">MuMax3</span>
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Magnonics</span>
+          </div>
+          <a href="https://github.com/waleedwaseer/Hopfion" class="project-link" target="_blank">↗ github.com/waleedwaseer/Hopfion</a>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-media">
+          <span class="project-media-placeholder">Kagome_spin_ice</span>
+        </div>
+        <div class="project-body">
+          <div class="project-status">Active Research</div>
+          <div class="project-title">Kagome Spin Ice</div>
+          <p class="project-desc">Micromagnetic modeling and AI-driven inverse models for artificial Kagome Spin Ice systems — studying frustrated spin textures and their nonlinear magnon response for magnonic-computing applications.</p>
+          <div class="project-tags">
+            <span class="project-tag">MuMax3</span>
+            <span class="project-tag">Spintronics</span>
+            <span class="project-tag">AI Inverse Design</span>
+          </div>
+          <a href="https://github.com/waleedwaseer/Kagome_spin_ice" class="project-link" target="_blank">↗ github.com/waleedwaseer/Kagome_spin_ice</a>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-media">
+          <span class="project-media-placeholder">Mxene-absrorber</span>
+        </div>
+        <div class="project-body">
+          <div class="project-status">JOSA B · Editor's Pick</div>
+          <div class="project-title">MXene Solar Absorber — DNN Predictive Model</div>
+          <p class="project-desc">Deep neural network trained to predict the optical absorption spectra of MXene-based metasurface solar absorbers, cutting reliance on repeated full-wave simulation sweeps.</p>
+          <div class="project-tags">
+            <span class="project-tag">PyTorch</span>
+            <span class="project-tag">DNN</span>
+            <span class="project-tag">Nanophotonics</span>
+          </div>
+          <a href="https://github.com/waleedwaseer/Mxene-absrorber" class="project-link" target="_blank">↗ github.com/waleedwaseer/Mxene-absrorber</a>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-media">
+          <span class="project-media-placeholder">Surrogate Inverse Design</span>
+        </div>
+        <div class="project-body">
+          <div class="project-status">Active Research</div>
+          <div class="project-title">Forward-Surrogate-Assisted Inverse Design of Nanophotonic Metasurfaces</div>
+          <p class="project-desc">Cyclic-consistent, surrogate-assisted deep learning framework performing simultaneous forward and inverse design of nanophotonic metasurfaces — mapping target optical response directly to structural geometry.</p>
+          <div class="project-tags">
+            <span class="project-tag">Cyclic DL</span>
+            <span class="project-tag">Metasurfaces</span>
+            <span class="project-tag">PyTorch</span>
+          </div>
+          <a href="https://github.com/waleedwaseer/Forward-Surrogate-Assisted-Inverse-Design-of-Nanophotonic-Metasurfaces" class="project-link" target="_blank">↗ View on GitHub</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -886,7 +1181,7 @@
 <section id="publications">
   <div class="section-wrap">
     <div class="section-header reveal">
-      <span class="section-number">04</span>
+      <span class="section-number">05</span>
       <h2 class="section-title">Selected Publications</h2>
       <div class="section-line"></div>
     </div>
@@ -912,11 +1207,12 @@
       </div>
 
       <div class="pub-item reveal">
-        <div class="pub-year">2025</div>
+        <div class="pub-year">2026</div>
         <div class="pub-content">
-          <div class="pub-title">Investigation of the Goos–Hänchen shift in a multilayered bi-anisotropic structure coated with a graphene monolayer</div>
-          <div class="pub-journal">Journal of the Optical Society of America B</div>
-          <div><span class="pub-badge">Editor's Pick</span></div>
+          <div class="pub-title">Nonlinear Dynamics of Hopfion for Frequency Multiplication</div>
+          <div class="pub-journal">Physical Review Applied</div>
+          <div><span class="pub-badge review">Under Review</span></div>
+          <a href="https://github.com/waleedwaseer/Hopfion" class="pub-link" target="_blank">↗ Code: github.com/waleedwaseer/Hopfion</a>
         </div>
       </div>
 
@@ -938,7 +1234,9 @@
         </div>
       </div>
 
-      <div class="pub-item reveal">
+      <div class="pub-subgroup-label reveal">Earlier Theoretical Work</div>
+
+      <div class="pub-item minor reveal">
         <div class="pub-year">2019</div>
         <div class="pub-content">
           <div class="pub-title">Non-uniform plane waves (ghost waves) in general anisotropic medium</div>
@@ -947,7 +1245,7 @@
         </div>
       </div>
 
-      <div class="pub-item reveal">
+      <div class="pub-item minor reveal">
         <div class="pub-year">2023</div>
         <div class="pub-content">
           <div class="pub-title">Continuity of Field Patterns for Exceptional Surface Waves and Exceptional Compound Waves</div>
@@ -956,7 +1254,7 @@
         </div>
       </div>
 
-      <div class="pub-item reveal">
+      <div class="pub-item minor reveal">
         <div class="pub-year">2018</div>
         <div class="pub-content">
           <div class="pub-title">Second-order fading statistics of massive-MIMO vehicular radio communication channels</div>
@@ -971,54 +1269,71 @@
 
 <div class="section-divider"></div>
 
+<!-- ACADEMIC SERVICES -->
+<section id="services">
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <span class="section-number">06</span>
+      <h2 class="section-title">Academic Services</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="services-grid">
+      <div class="info-card reveal">
+        <div class="info-card-label">Journal Reviewer</div>
+        <div class="info-card-value">
+          <ul>
+            <li>Optics Express</li>
+            <li>IEEE Transactions on Antennas and Propagation (TAP)</li>
+            <li>Journal of the Optical Society of America A / B (JOSA A/B)</li>
+            <li>Applied Optics</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p class="reveal" style="font-size:14px;color:var(--muted);margin-top:24px;">Start dates and any additional editorial, advisory, or conference-reviewer roles can be added here — just share the details.</p>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
 <!-- PLATFORM SUGGESTIONS -->
 <section class="platform-section">
   <div class="section-wrap">
     <div class="section-header reveal">
-      <span class="section-number">05</span>
-      <h2 class="section-title">Recommended Platforms</h2>
+      <span class="section-number">07</span>
+      <h2 class="section-title">Find My Work</h2>
       <div class="section-line"></div>
     </div>
-    <p class="reveal" style="font-size:17px;color:var(--muted);margin-bottom:40px;max-width:680px;">Platforms where you can post your research results, preprints, and engage with the scientific community.</p>
+    <p class="reveal" style="font-size:17px;color:var(--muted);margin-bottom:40px;max-width:680px;">Code, preprints, and research profiles.</p>
     <div class="platform-grid">
       <div class="platform-card reveal">
-        <div class="p-name">ResearchGate</div>
-        <div class="p-desc">Share full-text papers, track citations, connect with collaborators, and get discovered by scientists in your field.</div>
-        <div class="p-type">Academic Network</div>
+        <div class="p-name">GitHub</div>
+        <div class="p-desc">Simulation code, AI models, and inverse-design frameworks — Hopfion dynamics, Kagome spin ice, MXene absorbers, and more.</div>
+        <div class="p-type">Code Repository</div>
       </div>
       <div class="platform-card reveal">
         <div class="p-name">Google Scholar</div>
-        <div class="p-desc">Create a verified profile aggregating all your publications with citation counts and h-index tracking.</div>
+        <div class="p-desc">A verified profile aggregating all publications with citation counts and h-index tracking.</div>
         <div class="p-type">Citation Index</div>
       </div>
       <div class="platform-card reveal">
         <div class="p-name">arXiv</div>
-        <div class="p-desc">Post preprints instantly for free open-access sharing in physics, electrical engineering, and CS before journal publication.</div>
+        <div class="p-desc">Preprints posted for free open-access sharing in physics, electrical engineering, and CS before journal publication.</div>
         <div class="p-type">Preprint Server</div>
       </div>
       <div class="platform-card reveal">
+        <div class="p-name">ResearchGate</div>
+        <div class="p-desc">Full-text papers, citation tracking, and collaborator discovery in the magnonics/photonics community.</div>
+        <div class="p-type">Academic Network</div>
+      </div>
+      <div class="platform-card reveal">
         <div class="p-name">ORCID</div>
-        <div class="p-desc">Establish a persistent digital identity linking all your research outputs, affiliations, and funding across publishers.</div>
+        <div class="p-desc">Persistent digital identity linking research outputs, affiliations, and funding across publishers.</div>
         <div class="p-type">Researcher ID</div>
       </div>
       <div class="platform-card reveal">
-        <div class="p-name">Academia.edu</div>
-        <div class="p-desc">Upload papers and preprints to reach a broad academic audience with analytics on who reads your work.</div>
-        <div class="p-type">Paper Sharing</div>
-      </div>
-      <div class="platform-card reveal">
-        <div class="p-name">LinkedIn</div>
-        <div class="p-desc">Share research milestones, conference updates, and publications to build industry and academic visibility.</div>
-        <div class="p-type">Professional Network</div>
-      </div>
-      <div class="platform-card reveal">
-        <div class="p-name">Twitter / X</div>
-        <div class="p-desc">Engage in #ScienceTwitter, share findings with concise threads, and connect with global electromagnetics researchers.</div>
-        <div class="p-type">Science Communication</div>
-      </div>
-      <div class="platform-card reveal">
         <div class="p-name">Zenodo</div>
-        <div class="p-desc">Archive datasets, code, and simulation files alongside your papers with DOIs — ideal for COMSOL or MuMax3 outputs.</div>
+        <div class="p-desc">Archive datasets, code, and simulation files alongside papers with DOIs — ideal for MuMax3 or COMSOL outputs.</div>
         <div class="p-type">Data Repository</div>
       </div>
     </div>
@@ -1031,14 +1346,14 @@
 <section id="contact">
   <div class="section-wrap">
     <div class="section-header reveal">
-      <span class="section-number">06</span>
+      <span class="section-number">08</span>
       <h2 class="section-title">Contact</h2>
       <div class="section-line"></div>
     </div>
     <div class="contact-grid">
       <div class="reveal">
-        <p class="contact-intro">Open to collaborations in electromagnetics, spintronics, and AI-driven RF design.</p>
-        <p style="font-size:17px;color:var(--muted);line-height:1.8;">Whether you're a researcher, institution, or industry partner interested in wave propagation, metasurface engineering, or magnetic systems — reach out.</p>
+        <p class="contact-intro">Open to collaborations in ML-driven magnonics, spintronics, and nanophotonic inverse design.</p>
+        <p style="font-size:17px;color:var(--muted);line-height:1.8;">Whether you're a researcher, institution, or industry partner interested in AI-accelerated physical simulation, topological spin dynamics, or metasurface design — reach out.</p>
       </div>
       <div class="contact-items reveal">
         <a href="mailto:Waleedwaseer@gmail.com" class="contact-item">
@@ -1046,6 +1361,13 @@
           <div class="contact-detail">
             <span class="clabel">Email</span>
             <span class="cval">Waleedwaseer@gmail.com</span>
+          </div>
+        </a>
+        <a href="https://github.com/waleedwaseer" class="contact-item" target="_blank">
+          <div class="contact-icon">⌥</div>
+          <div class="contact-detail">
+            <span class="clabel">GitHub</span>
+            <span class="cval">github.com/waleedwaseer</span>
           </div>
         </a>
         <a href="https://www.linkedin.com/in/waleedwaseer/" class="contact-item" target="_blank">
@@ -1077,7 +1399,7 @@
 <!-- FOOTER -->
 <footer>
   <p>© 2024 Dr. Waleed I. Waseer · UESTC, China</p>
-  <p>BEng · MEng · PHD · Electromagnetics & RF Research</p>
+  <p>BEng · MEng · PHD · Machine Learning for Magnonics & Nanophotonics</p>
 </footer>
 
 <script>
