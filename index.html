@@ -20,7 +20,6 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -31,16 +30,8 @@
     line-height: 1.7;
   }
 
-  /* ── CANVAS BG ── */
-  #wave-canvas {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    opacity: 0.35;
-    pointer-events: none;
-  }
+  #wave-canvas { position: fixed; inset: 0; z-index: 0; opacity: 0.35; pointer-events: none; }
 
-  /* ── NAV ── */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -62,11 +53,7 @@
     text-transform: uppercase;
   }
 
-  .nav-links {
-    display: flex;
-    gap: 36px;
-    list-style: none;
-  }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
 
   .nav-links a {
     font-family: 'JetBrains Mono', monospace;
@@ -80,13 +67,8 @@
 
   .nav-links a:hover { color: var(--accent2); }
 
-  /* ── SECTIONS ── */
-  section {
-    position: relative;
-    z-index: 1;
-  }
+  section { position: relative; z-index: 1; }
 
-  /* ── HERO ── */
   #hero {
     min-height: 100vh;
     display: flex;
@@ -119,10 +101,7 @@
     animation: fadeUp 0.9s 0.4s forwards;
   }
 
-  .hero-name em {
-    font-style: italic;
-    color: var(--accent2);
-  }
+  .hero-name em { font-style: italic; color: var(--accent2); }
 
   .hero-title {
     font-family: 'Cormorant Garamond', serif;
@@ -145,13 +124,7 @@
     line-height: 1.8;
   }
 
-  .hero-ctas {
-    display: flex;
-    gap: 20px;
-    opacity: 0;
-    animation: fadeUp 0.9s 1s forwards;
-    flex-wrap: wrap;
-  }
+  .hero-ctas { display: flex; gap: 20px; opacity: 0; animation: fadeUp 0.9s 1s forwards; flex-wrap: wrap; }
 
   .btn-primary {
     font-family: 'JetBrains Mono', monospace;
@@ -168,11 +141,7 @@
     display: inline-block;
   }
 
-  .btn-primary:hover {
-    background: var(--accent2);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 40px rgba(74,158,255,0.3);
-  }
+  .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); box-shadow: 0 10px 40px rgba(74,158,255,0.3); }
 
   .btn-outline {
     font-family: 'JetBrains Mono', monospace;
@@ -189,21 +158,7 @@
     display: inline-block;
   }
 
-  .btn-outline:hover {
-    border-color: var(--accent);
-    background: rgba(74,158,255,0.08);
-  }
-
-  .hero-stats {
-    display: flex;
-    gap: 60px;
-    margin-top: 80px;
-    padding-top: 40px;
-    border-top: 1px solid var(--border);
-    opacity: 0;
-    animation: fadeUp 0.9s 1.2s forwards;
-    flex-wrap: wrap;
-  }
+  .btn-outline:hover { border-color: var(--accent); background: rgba(74,158,255,0.08); }
 
   .hero-links {
     display: flex;
@@ -226,54 +181,41 @@
   }
 
   .hero-links a:hover { color: var(--accent2); }
-
   .hero-links-dot { color: var(--border); font-size: 11px; }
 
-  .stat-item .num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 42px;
-    font-weight: 300;
-    color: var(--accent);
-    line-height: 1;
+  .hero-pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 70px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+    opacity: 0;
+    animation: fadeUp 0.9s 1.2s forwards;
   }
 
-  .stat-item .label {
+  .pillar-label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
-    color: var(--muted);
+    color: var(--accent);
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    margin-top: 6px;
+    margin-bottom: 10px;
   }
 
-  /* ── DIVIDER ── */
+  .pillar-text { font-size: 15px; color: rgba(232,237,245,0.68); line-height: 1.7; }
+
   .section-divider {
     width: 100%;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--border) 30%, var(--border) 70%, transparent);
-    margin: 0;
   }
 
-  /* ── SECTION WRAPPER ── */
-  .section-wrap {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 100px 60px;
-  }
+  .section-wrap { max-width: 1300px; margin: 0 auto; padding: 100px 60px; }
 
-  .section-header {
-    display: flex;
-    align-items: baseline;
-    gap: 24px;
-    margin-bottom: 64px;
-  }
+  .section-header { display: flex; align-items: baseline; gap: 24px; margin-bottom: 64px; }
 
-  .section-number {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--accent);
-    letter-spacing: 0.2em;
-  }
+  .section-number { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 0.2em; }
 
   .section-title {
     font-family: 'Cormorant Garamond', serif;
@@ -282,38 +224,15 @@
     letter-spacing: -0.01em;
   }
 
-  .section-line {
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
+  .section-line { flex: 1; height: 1px; background: var(--border); }
 
-  /* ── ABOUT ── */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 80px;
-    align-items: start;
-  }
+  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: start; }
 
-  .about-text p {
-    font-size: 19px;
-    color: rgba(232,237,245,0.8);
-    margin-bottom: 24px;
-    line-height: 1.85;
-  }
+  .about-text p { font-size: 19px; color: rgba(232,237,245,0.8); margin-bottom: 24px; line-height: 1.85; }
 
-  .about-sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
+  .about-sidebar { display: flex; flex-direction: column; gap: 24px; }
 
-  .info-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 24px 28px;
-  }
+  .info-card { background: var(--card); border: 1px solid var(--border); padding: 24px 28px; }
 
   .info-card-label {
     font-family: 'JetBrains Mono', monospace;
@@ -324,124 +243,16 @@
     margin-bottom: 10px;
   }
 
-  .info-card-value {
-    font-size: 16px;
-    color: var(--text);
-  }
+  .info-card-value { font-size: 16px; color: var(--text); }
+  .info-card-value ul { list-style: none; padding: 0; }
+  .info-card-value li { font-size: 15px; padding: 3px 0; color: rgba(232,237,245,0.85); }
 
-  .info-card-value ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  .info-card-value li {
-    font-size: 15px;
-    padding: 3px 0;
-    color: rgba(232,237,245,0.85);
-  }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-  }
-
-  /* ── EXPERIENCE ── */
-  .timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .timeline-item {
-    display: grid;
-    grid-template-columns: 200px 1px 1fr;
-    gap: 0 40px;
-    position: relative;
-  }
-
-  .timeline-date {
-    text-align: right;
-    padding: 32px 0;
-  }
-
-  .timeline-date .period {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-    display: block;
-    margin-bottom: 6px;
-  }
-
-  .timeline-date .org {
-    font-size: 13px;
-    color: var(--muted);
-    font-style: italic;
-  }
-
-  .timeline-line {
-    background: var(--border);
-    position: relative;
-    display: flex;
-    justify-content: center;
-  }
-
-  .timeline-dot {
-    width: 10px;
-    height: 10px;
-    background: var(--accent);
-    border-radius: 50%;
-    position: absolute;
-    top: 38px;
-    left: 50%;
-    transform: translateX(-50%);
-    box-shadow: 0 0 20px rgba(74,158,255,0.6);
-  }
-
-  .timeline-content {
-    padding: 28px 0 48px;
-  }
-
-  .timeline-role {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    font-weight: 400;
-    margin-bottom: 12px;
-  }
-
-  .timeline-bullets {
-    list-style: none;
-  }
-
-  .timeline-bullets li {
-    font-size: 16px;
-    color: rgba(232,237,245,0.72);
-    padding-left: 20px;
-    position: relative;
-    margin-bottom: 8px;
-    line-height: 1.7;
-  }
-
-  .timeline-bullets li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-size: 12px;
-  }
-
-  /* ── RESEARCH / SKILLS ── */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-  }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; }
 
   .skill-card {
     background: var(--card);
     border: 1px solid var(--border);
-    padding: 32px;
+    padding: 36px;
     position: relative;
     overflow: hidden;
     transition: border-color 0.3s, transform 0.3s;
@@ -461,31 +272,19 @@
   .skill-card:hover::before { transform: scaleX(1); }
   .skill-card:hover { border-color: rgba(100,180,255,0.3); transform: translateY(-4px); }
 
-  .skill-icon {
-    font-size: 28px;
-    margin-bottom: 16px;
-    display: block;
+  .skill-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
   }
 
-  .skill-card h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    font-weight: 400;
-    margin-bottom: 12px;
-  }
+  .skill-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; margin-bottom: 14px; }
+  .skill-card p { font-size: 15.5px; color: var(--muted); line-height: 1.75; }
 
-  .skill-card p {
-    font-size: 15px;
-    color: var(--muted);
-    line-height: 1.7;
-  }
-
-  .focus-callout {
-    margin-top: 32px;
-    padding: 32px 36px;
-    background: var(--faint);
-    border-left: 2px solid var(--accent);
-  }
+  .focus-callout { margin-top: 32px; padding: 32px 36px; background: var(--faint); border-left: 2px solid var(--accent); }
 
   .focus-callout-label {
     font-family: 'JetBrains Mono', monospace;
@@ -496,164 +295,28 @@
     margin-bottom: 14px;
   }
 
-  .focus-callout p {
-    font-size: 16px;
-    color: rgba(232,237,245,0.78);
-    line-height: 1.8;
-    max-width: 900px;
-  }
+  .focus-callout p { font-size: 16px; color: rgba(232,237,245,0.78); line-height: 1.8; max-width: 900px; }
 
-  /* ── PROJECTS ── */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 28px;
-  }
-
-  .project-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    overflow: hidden;
-    transition: border-color 0.3s, transform 0.3s;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .project-card:hover { border-color: rgba(100,180,255,0.35); transform: translateY(-4px); }
-
-  .project-media {
-    width: 100%;
-    height: 200px;
-    background: #05070d;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .project-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .project-media-placeholder {
+  .pub-year-heading {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-  }
-
-  .project-body {
-    padding: 26px 28px 28px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .project-status {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 9px;
+    font-size: 12px;
+    color: var(--accent2);
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 10px;
+    margin: 44px 0 20px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
   }
 
-  .project-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    font-weight: 400;
-    margin-bottom: 10px;
-    color: var(--text);
-  }
+  .pub-year-heading:first-child { margin-top: 0; padding-top: 0; border-top: none; }
 
-  .project-desc {
-    font-size: 15px;
-    color: rgba(232,237,245,0.7);
-    line-height: 1.7;
-    margin-bottom: 18px;
-    flex: 1;
-  }
+  .pub-list { display: flex; flex-direction: column; gap: 20px; }
 
-  .project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 18px;
-  }
-
-  .project-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    background: var(--faint);
-    color: var(--accent2);
-    border: 1px solid rgba(74,158,255,0.2);
-  }
-
-  .project-link {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--accent);
-    text-decoration: none;
-    letter-spacing: 0.1em;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: opacity 0.2s;
-  }
-
-  .project-link:hover { opacity: 0.7; }
-
-  /* ── PUBLICATIONS ── */
-  .pub-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .pub-item {
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 28px 32px;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 24px;
-    align-items: start;
-    transition: border-color 0.3s;
-  }
-
+  .pub-item { background: var(--card); border: 1px solid var(--border); padding: 26px 30px; transition: border-color 0.3s; }
   .pub-item:hover { border-color: rgba(100,180,255,0.3); }
 
-  .pub-year {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-    padding-top: 4px;
-    min-width: 45px;
-  }
-
-  .pub-content .pub-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    font-weight: 400;
-    margin-bottom: 8px;
-    line-height: 1.4;
-  }
-
-  .pub-content .pub-journal {
-    font-size: 14px;
-    color: var(--muted);
-    font-style: italic;
-    margin-bottom: 8px;
-  }
+  .pub-title { font-family: 'Cormorant Garamond', serif; font-size: 18.5px; font-weight: 400; margin-bottom: 8px; line-height: 1.45; color: var(--text); }
+  .pub-journal { font-size: 14px; color: var(--muted); font-style: italic; margin-bottom: 6px; }
 
   .pub-badge {
     display: inline-block;
@@ -665,7 +328,8 @@
     background: rgba(201,168,76,0.15);
     color: var(--gold);
     border: 1px solid rgba(201,168,76,0.3);
-    margin-top: 4px;
+    margin-top: 6px;
+    margin-bottom: 6px;
   }
 
   .pub-badge.review {
@@ -680,41 +344,22 @@
     color: var(--accent);
     text-decoration: none;
     letter-spacing: 0.1em;
-    opacity: 0.7;
+    opacity: 0.75;
     transition: opacity 0.2s;
     display: inline-block;
-    margin-top: 8px;
+    margin-top: 6px;
   }
 
   .pub-link:hover { opacity: 1; }
 
-  .pub-subgroup-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    color: var(--muted);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin: 40px 0 20px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
-  }
+  .pub-note { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); letter-spacing: 0.05em; }
+  .pub-note a { color: var(--accent); text-decoration: none; }
+  .pub-note a:hover { color: var(--accent2); }
 
-  .pub-item.minor {
-    padding: 18px 24px;
-    opacity: 0.75;
-  }
+  .pub-item.minor { padding: 18px 24px; opacity: 0.75; }
+  .pub-item.minor .pub-title { font-size: 15px; }
 
-  .pub-item.minor .pub-title {
-    font-size: 15px;
-  }
-
-  /* ── CONTACT ── */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
-  }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
 
   .contact-intro {
     font-family: 'Cormorant Garamond', serif;
@@ -724,11 +369,7 @@
     margin-bottom: 32px;
   }
 
-  .contact-items {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
+  .contact-items { display: flex; flex-direction: column; gap: 16px; }
 
   .contact-item {
     display: flex;
@@ -742,16 +383,9 @@
     transition: all 0.3s;
   }
 
-  .contact-item:hover {
-    border-color: rgba(74,158,255,0.4);
-    background: rgba(74,158,255,0.06);
-  }
+  .contact-item:hover { border-color: rgba(74,158,255,0.4); background: rgba(74,158,255,0.06); }
 
-  .contact-icon {
-    font-size: 18px;
-    width: 36px;
-    text-align: center;
-  }
+  .contact-icon { font-size: 18px; width: 36px; text-align: center; }
 
   .contact-detail .clabel {
     font-family: 'JetBrains Mono', monospace;
@@ -763,60 +397,8 @@
     margin-bottom: 2px;
   }
 
-  .contact-detail .cval {
-    font-size: 15px;
-    color: rgba(232,237,245,0.85);
-  }
+  .contact-detail .cval { font-size: 15px; color: rgba(232,237,245,0.85); }
 
-  /* ── PLATFORM SECTION ── */
-  .platform-section {
-    background: var(--surface);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .platform-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-  }
-
-  .platform-card {
-    padding: 28px;
-    border: 1px solid var(--border);
-    background: var(--card);
-    transition: all 0.3s;
-  }
-
-  .platform-card:hover {
-    border-color: rgba(74,158,255,0.35);
-    transform: translateY(-3px);
-  }
-
-  .platform-card .p-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    font-weight: 400;
-    margin-bottom: 8px;
-    color: var(--accent2);
-  }
-
-  .platform-card .p-desc {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.65;
-    margin-bottom: 12px;
-  }
-
-  .platform-card .p-type {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-  }
-
-  /* ── FOOTER ── */
   footer {
     position: relative;
     z-index: 1;
@@ -829,40 +411,23 @@
     margin: 0 auto;
   }
 
-  footer p {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-  }
+  footer p { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.1em; }
 
-  /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(30px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
 
-  .reveal.visible {
-    opacity: 1;
-    transform: none;
-  }
-
-  /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     nav { padding: 16px 24px; }
     .nav-links { gap: 20px; }
     #hero, .section-wrap { padding-left: 24px; padding-right: 24px; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
     .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-    .timeline-item { grid-template-columns: 1fr; }
-    .timeline-line { display: none; }
-    .timeline-date { text-align: left; padding: 0 0 8px; }
+    .hero-pillars { grid-template-columns: 1fr; gap: 28px; }
     footer { flex-direction: column; gap: 12px; text-align: center; }
   }
 </style>
@@ -871,16 +436,12 @@
 
 <canvas id="wave-canvas"></canvas>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">W. I. Waseer · PHD</div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#experience">Experience</a></li>
     <li><a href="#research">Research</a></li>
-    <li><a href="#projects">Projects</a></li>
     <li><a href="#publications">Publications</a></li>
-    <li><a href="#services">Services</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -892,10 +453,10 @@
     <h1 class="hero-name">Dr. Waleed<br><em>I. Waseer</em></h1>
     <p class="hero-title">Machine Learning · Magnonics · Nanophotonics</p>
     <p class="hero-desc">
-      I build AI surrogate models that replace costly micromagnetic and full-wave simulations — driving nonlinear magnon dynamics in topological spin textures and inverse-designing nanophotonic metasurfaces. My work sits at the intersection of deep learning (GANs, DenseNet, cyclic-consistent frameworks) and physical simulation (MuMax3, COMSOL, FDTD/FEM).
+      I build AI surrogate models that replace costly micromagnetic and full-wave simulations — driving nonlinear magnon dynamics in topological spin textures and inverse-designing nanophotonic metasurfaces. My work bridges deep learning (GANs, DenseNet, cyclic-consistent frameworks) with physical simulation (MuMax3, COMSOL, FDTD/FEM).
     </p>
     <div class="hero-ctas">
-      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="#research" class="btn-primary">View Research</a>
       <a href="mailto:Waleedwaseer@gmail.com" class="btn-outline">Get in Touch</a>
     </div>
     <div class="hero-links">
@@ -906,6 +467,20 @@
       <a href="http://arxiv.org/a/iqbal_w_1" target="_blank">arXiv</a>
       <span class="hero-links-dot">·</span>
       <a href="https://www.linkedin.com/in/waleedwaseer/" target="_blank">LinkedIn</a>
+    </div>
+    <div class="hero-pillars">
+      <div>
+        <div class="pillar-label">Method</div>
+        <div class="pillar-text">AI surrogate models — GANs, DenseNet, cyclic-consistent networks — trained to replace repeated micromagnetic and full-wave simulation sweeps.</div>
+      </div>
+      <div>
+        <div class="pillar-label">Focus</div>
+        <div class="pillar-text">Nonlinear magnon dynamics in topological spin textures, and inverse-designed nanophotonic metasurfaces, grounded in classical electromagnetic theory.</div>
+      </div>
+      <div>
+        <div class="pillar-label">Vision</div>
+        <div class="pillar-text">A shared AI toolkit treating magnon and photon design problems as one class of inverse problem — cutting simulation cost across both domains.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -924,7 +499,7 @@
       <div class="about-text reveal">
         <p>Dr. Waleed I. Waseer is a Postdoctoral Fellow at the University of Electronic Science and Technology of China (UESTC), where his current work centers on machine learning for magnonics and nanophotonics — using deep neural networks to model and accelerate the design of complex physical systems that are otherwise prohibitively expensive to simulate.</p>
         <p>His recent research applies deep neural networks to predict the optical response of MXene-based metasurface solar absorbers, and cyclic-consistent inverse design frameworks to map desired optical responses back onto nanophotonic structures — replacing thousands of FDTD/FEM sweeps with a trained surrogate model. In parallel, he studies the nonlinear dynamics of magnetic Hopfions in chiral ferromagnets and Kagome Spin Ice, using MuMax3 micromagnetic simulation alongside AI-driven inverse models to understand and engineer topological spin textures for frequency-multiplication and magnonic computing applications.</p>
-        <p>This applied AI work is grounded in a doctoral background in classical electromagnetic wave theory from COMSATS University Islamabad, giving his machine-learning models a physics-informed foundation rather than treating them as black boxes.</p>
+        <p>This applied AI work is grounded in a doctoral background in classical electromagnetic wave theory from COMSATS University Islamabad, giving his machine-learning models a physics-informed foundation rather than treating them as black boxes. Prior to UESTC, he held a Research Associate position at COMSATS and a visiting Research Scholar appointment at Penn State, and taught Electricity & Magnetism and Engineering Mathematics as a Lecturer at Quaid-i-Azam University.</p>
       </div>
       <div class="about-sidebar reveal">
         <div class="info-card">
@@ -946,6 +521,10 @@
           <div class="info-card-label">Key Tools</div>
           <div class="info-card-value">PyTorch (GANs, DenseNet) · MuMax3 · COMSOL · CST · MATLAB</div>
         </div>
+        <div class="info-card">
+          <div class="info-card-label">Academic Service</div>
+          <div class="info-card-value">Reviewer — Optics Express, IEEE TAP, JOSA A/B, Applied Optics</div>
+        </div>
       </div>
     </div>
   </div>
@@ -953,118 +532,35 @@
 
 <div class="section-divider"></div>
 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-wrap">
-    <div class="section-header reveal">
-      <span class="section-number">02</span>
-      <h2 class="section-title">Experience</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="timeline">
-
-      <div class="timeline-item reveal">
-        <div class="timeline-date">
-          <span class="period">Mar 2024 – Present</span>
-          <span class="org">UESTC, China</span>
-        </div>
-        <div class="timeline-line"><div class="timeline-dot"></div></div>
-        <div class="timeline-content">
-          <div class="timeline-role">Postdoctoral Fellow</div>
-          <ul class="timeline-bullets">
-            <li>Research, design, and implementation of nonlinear-dynamics studies of Hopfions in chiral magnets and Kagome Spin Ice, using MuMax3 micromagnetic simulation</li>
-            <li>Development of AI-driven inverse models for artificial spin ice, replacing repeated micromagnetic sweeps with trained surrogate networks</li>
-            <li>Investigation of nonlinear wave interactions in magnetic systems for RF/microwave frequency-conversion applications</li>
-            <li>Preparation of manuscripts for submission to top-ranked journals (e.g., Physical Review Applied) and presentation of findings to the research group</li>
-            <li>Collaboration within a multi-disciplinary group spanning micromagnetics, machine learning, and device physics</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="timeline-item reveal">
-        <div class="timeline-date">
-          <span class="period">2023 – 2024</span>
-          <span class="org">COMSATS, Pakistan</span>
-        </div>
-        <div class="timeline-line"><div class="timeline-dot"></div></div>
-        <div class="timeline-content">
-          <div class="timeline-role">Research Associate</div>
-          <ul class="timeline-bullets">
-            <li>Design and characterization of metamaterial-based sensors for chemical detection and biosensing applications</li>
-            <li>Development of deep-learning inverse models (DenseNet, cyclic-consistent frameworks) for metasurface absorber design, substantially reducing reliance on FDTD/FEM simulation sweeps</li>
-            <li>Co-authorship of journal manuscripts, including work later recognized as an Editor's Pick in JOSA B</li>
-            <li>Mentorship of junior lab members on COMSOL and Python-based simulation workflows</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="timeline-item reveal">
-        <div class="timeline-date">
-          <span class="period">Jan–Jul 2022</span>
-          <span class="org">Penn State, USA</span>
-        </div>
-        <div class="timeline-line"><div class="timeline-dot"></div></div>
-        <div class="timeline-content">
-          <div class="timeline-role">Research Scholar</div>
-          <ul class="timeline-bullets">
-            <li>Investigation of thermal hysteresis in surface plasmon-polariton wave propagation across phase-change materials</li>
-            <li>Scattering analysis of spherical VO₂ objects for temperature-tunable waveguide applications</li>
-            <li>Collaborative research visit resulting in two peer-reviewed publications (JOSA A, Materials Letters)</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="timeline-item reveal">
-        <div class="timeline-date">
-          <span class="period">Sep 2020 – Sep 2023</span>
-          <span class="org">QAU, Pakistan</span>
-        </div>
-        <div class="timeline-line"><div class="timeline-dot"></div></div>
-        <div class="timeline-content">
-          <div class="timeline-role">Lecturer</div>
-          <ul class="timeline-bullets">
-            <li>Lecture planning, preparation, and teaching for Electricity & Magnetism and Engineering Mathematics</li>
-            <li>Supervision of Analog Circuits Lab and Communication Systems Lab sessions</li>
-            <li>Assessment and grading of undergraduate coursework and lab reports</li>
-            <li>Attending departmental meetings and general administrative responsibilities</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- RESEARCH AREAS -->
+<!-- RESEARCH -->
 <section id="research">
   <div class="section-wrap">
     <div class="section-header reveal">
-      <span class="section-number">03</span>
-      <h2 class="section-title">Research Areas</h2>
+      <span class="section-number">02</span>
+      <h2 class="section-title">Research</h2>
       <div class="section-line"></div>
     </div>
+    <p class="reveal" style="font-size:17px;color:var(--muted);margin-bottom:48px;max-width:780px;">Replacing costly micromagnetic and full-wave simulation with trained AI surrogates — applied across topological spin textures and nanophotonic metasurfaces.</p>
     <div class="skills-grid">
       <div class="skill-card reveal">
-        <span class="skill-icon">🤖</span>
+        <div class="skill-eyebrow">Surrogate Modeling</div>
         <h3>AI-Driven Inverse Design</h3>
-        <p>Deep neural networks (GANs, DenseNet), cyclic-consistent forward/inverse frameworks, and surrogate models that replace costly FDTD/FEM simulation with trained networks.</p>
+        <p>Deep neural networks — GANs, DenseNet, and cyclic-consistent forward/inverse frameworks — trained as surrogate models that replace costly FDTD/FEM simulation sweeps, mapping a desired optical or magnetic response directly onto structural or material parameters.</p>
       </div>
       <div class="skill-card reveal">
-        <span class="skill-icon">🧲</span>
+        <div class="skill-eyebrow">Topological Spin Textures</div>
         <h3>Magnonics & Spintronics</h3>
-        <p>Nonlinear dynamics of Hopfions in chiral magnets, Kagome Spin Ice, harmonic generation and frequency multiplication, magnon-mode excitation and control.</p>
+        <p>Nonlinear dynamics of Hopfions in chiral ferromagnets and Kagome Spin Ice, studied via MuMax3 micromagnetic simulation — including harmonic generation, frequency multiplication, and magnon-mode excitation and control for magnonic-computing applications.</p>
       </div>
       <div class="skill-card reveal">
-        <span class="skill-icon">🔬</span>
+        <div class="skill-eyebrow">Metasurface Design</div>
         <h3>Nanophotonics & Metasurfaces</h3>
-        <p>MXene-based solar absorbers, epsilon-near-zero slabs, spectral prediction and refinement, metasurface absorber design via deep learning.</p>
+        <p>MXene-based solar absorbers and epsilon-near-zero slabs, with deep-learning models trained for spectral prediction and refinement, accelerating metasurface absorber design far beyond what repeated full-wave sweeps allow.</p>
       </div>
       <div class="skill-card reveal">
-        <span class="skill-icon">⚙️</span>
+        <div class="skill-eyebrow">Physics-Informed Foundation</div>
         <h3>Computational Modelling</h3>
-        <p>MuMax3 (GPU micromagnetics), COMSOL Multiphysics, CST Studio Suite, FDTD/FEM methods, Python (PyTorch) and MATLAB for simulation and data analysis.</p>
+        <p>MuMax3 (GPU micromagnetics), COMSOL Multiphysics, CST Studio Suite, and FDTD/FEM methods, paired with Python (PyTorch) and MATLAB — grounding every machine-learning model in classical electromagnetic and micromagnetic theory rather than treating it as a black box.</p>
       </div>
     </div>
     <div class="focus-callout reveal">
@@ -1076,249 +572,75 @@
 
 <div class="section-divider"></div>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-wrap">
-    <div class="section-header reveal">
-      <span class="section-number">04</span>
-      <h2 class="section-title">Featured Projects</h2>
-      <div class="section-line"></div>
-    </div>
-    <p class="reveal" style="font-size:17px;color:var(--muted);margin-bottom:40px;max-width:680px;">Open-source simulation code and AI models — from micromagnetic solvers to inverse-design frameworks.</p>
-    <div class="projects-grid">
-
-      <div class="project-card reveal">
-        <div class="project-media">
-          <img src="https://raw.githubusercontent.com/waleedwaseer/Hopfion/main/mode_6.15.gif" alt="Hopfion magnon mode simulation" loading="lazy">
-        </div>
-        <div class="project-body">
-          <div class="project-status">Under Review · Physical Review Applied</div>
-          <div class="project-title">Nonlinear Dynamics of Hopfion for Frequency Multiplication</div>
-          <p class="project-desc">MuMax3 micromagnetic simulations of a magnetic Hopfion in a chiral ferromagnetic nanodisk. Characterizes localized breathing/gyrotropic magnon modes and demonstrates second- and third-harmonic generation and fractional-resonance excitation, including thermal and disorder robustness studies.</p>
-          <div class="project-tags">
-            <span class="project-tag">MuMax3</span>
-            <span class="project-tag">Python</span>
-            <span class="project-tag">Magnonics</span>
-          </div>
-          <a href="https://github.com/waleedwaseer/Hopfion" class="project-link" target="_blank">↗ github.com/waleedwaseer/Hopfion</a>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-media">
-          <span class="project-media-placeholder">Kagome_spin_ice</span>
-        </div>
-        <div class="project-body">
-          <div class="project-status">Active Research</div>
-          <div class="project-title">Kagome Spin Ice</div>
-          <p class="project-desc">Micromagnetic modeling and AI-driven inverse models for artificial Kagome Spin Ice systems — studying frustrated spin textures and their nonlinear magnon response for magnonic-computing applications.</p>
-          <div class="project-tags">
-            <span class="project-tag">MuMax3</span>
-            <span class="project-tag">Spintronics</span>
-            <span class="project-tag">AI Inverse Design</span>
-          </div>
-          <a href="https://github.com/waleedwaseer/Kagome_spin_ice" class="project-link" target="_blank">↗ github.com/waleedwaseer/Kagome_spin_ice</a>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-media">
-          <span class="project-media-placeholder">Mxene-absrorber</span>
-        </div>
-        <div class="project-body">
-          <div class="project-status">JOSA B · Editor's Pick</div>
-          <div class="project-title">MXene Solar Absorber — DNN Predictive Model</div>
-          <p class="project-desc">Deep neural network trained to predict the optical absorption spectra of MXene-based metasurface solar absorbers, cutting reliance on repeated full-wave simulation sweeps.</p>
-          <div class="project-tags">
-            <span class="project-tag">PyTorch</span>
-            <span class="project-tag">DNN</span>
-            <span class="project-tag">Nanophotonics</span>
-          </div>
-          <a href="https://github.com/waleedwaseer/Mxene-absrorber" class="project-link" target="_blank">↗ github.com/waleedwaseer/Mxene-absrorber</a>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-media">
-          <span class="project-media-placeholder">Surrogate Inverse Design</span>
-        </div>
-        <div class="project-body">
-          <div class="project-status">Active Research</div>
-          <div class="project-title">Forward-Surrogate-Assisted Inverse Design of Nanophotonic Metasurfaces</div>
-          <p class="project-desc">Cyclic-consistent, surrogate-assisted deep learning framework performing simultaneous forward and inverse design of nanophotonic metasurfaces — mapping target optical response directly to structural geometry.</p>
-          <div class="project-tags">
-            <span class="project-tag">Cyclic DL</span>
-            <span class="project-tag">Metasurfaces</span>
-            <span class="project-tag">PyTorch</span>
-          </div>
-          <a href="https://github.com/waleedwaseer/Forward-Surrogate-Assisted-Inverse-Design-of-Nanophotonic-Metasurfaces" class="project-link" target="_blank">↗ View on GitHub</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
 <!-- PUBLICATIONS -->
 <section id="publications">
   <div class="section-wrap">
     <div class="section-header reveal">
-      <span class="section-number">05</span>
-      <h2 class="section-title">Selected Publications</h2>
+      <span class="section-number">03</span>
+      <h2 class="section-title">Publications</h2>
       <div class="section-line"></div>
     </div>
+    <p class="pub-note reveal" style="margin-bottom:40px;">Full list on <a href="https://scholar.google.com/citations?hl=en&user=RQZjOhcAAAAJ&view_op=list_works&sortby=pubdate" target="_blank">Google Scholar</a> · also on <a href="http://arxiv.org/a/iqbal_w_1" target="_blank">arXiv</a></p>
+
+    <div class="pub-year-heading reveal">2026</div>
     <div class="pub-list">
-
       <div class="pub-item reveal">
-        <div class="pub-year">2025</div>
-        <div class="pub-content">
-          <div class="pub-title">Predictive Modeling of MXene-Based Solar Absorbers Using Deep Neural Network</div>
-          <div class="pub-journal">Journal of the Optical Society of America B (JOSA B)</div>
-          <div><span class="pub-badge">Editor's Pick</span></div>
-          <a href="https://doi.org/10.1364/JOSAB.550317" class="pub-link" target="_blank">↗ doi.org/10.1364/JOSAB.550317</a>
-        </div>
+        <div class="pub-title">Optimizing Spectral Prediction in MXene-Based Metasurfaces Through Multi-Channel Spectral Refinement and Savitzky-Golay Smoothing</div>
+        <div class="pub-journal">arXiv preprint (2026)</div>
+        <a href="https://doi.org/10.48550/arXiv.2602.08406" class="pub-link" target="_blank">↗ arXiv:2602.08406</a>
       </div>
-
       <div class="pub-item reveal">
-        <div class="pub-year">2026</div>
-        <div class="pub-content">
-          <div class="pub-title">Optimizing Spectral Prediction in MXene-Based Metasurfaces Through Multi-Channel Spectral Refinement and Savitzky-Golay Smoothing</div>
-          <div class="pub-journal">arXiv preprint</div>
-          <a href="https://doi.org/10.48550/arXiv.2602.08406" class="pub-link" target="_blank">↗ arXiv:2602.08406</a>
-        </div>
+        <div class="pub-title">Nonlinear Dynamics of Hopfion for Frequency Multiplication</div>
+        <div class="pub-journal">Physical Review Applied</div>
+        <div><span class="pub-badge review">Under Review</span></div>
+        <a href="https://github.com/waleedwaseer/Hopfion" class="pub-link" target="_blank">↗ Code: github.com/waleedwaseer/Hopfion</a>
       </div>
+    </div>
 
+    <div class="pub-year-heading reveal">2025</div>
+    <div class="pub-list">
       <div class="pub-item reveal">
-        <div class="pub-year">2026</div>
-        <div class="pub-content">
-          <div class="pub-title">Nonlinear Dynamics of Hopfion for Frequency Multiplication</div>
-          <div class="pub-journal">Physical Review Applied</div>
-          <div><span class="pub-badge review">Under Review</span></div>
-          <a href="https://github.com/waleedwaseer/Hopfion" class="pub-link" target="_blank">↗ Code: github.com/waleedwaseer/Hopfion</a>
-        </div>
+        <div class="pub-title">Predictive Modeling of MXene-Based Solar Absorbers Using Deep Neural Network</div>
+        <div class="pub-journal">Journal of the Optical Society of America B (JOSA B)</div>
+        <div><span class="pub-badge">Editor's Pick</span></div>
+        <a href="https://doi.org/10.1364/JOSAB.550317" class="pub-link" target="_blank">↗ doi.org/10.1364/JOSAB.550317</a>
       </div>
+    </div>
 
+    <div class="pub-year-heading reveal">2023</div>
+    <div class="pub-list">
       <div class="pub-item reveal">
-        <div class="pub-year">2022</div>
-        <div class="pub-content">
-          <div class="pub-title">Thermal hysteresis in scattering by VO₂ spheres</div>
-          <div class="pub-journal">Journal of the Optical Society of America A (JOSA A)</div>
-          <a href="http://dx.doi.org/10.1364/JOSAA.463159" class="pub-link" target="_blank">↗ doi.org/10.1364/JOSAA.463159</a>
-        </div>
+        <div class="pub-title">Continuity of Field Patterns for Exceptional Surface Waves and Exceptional Compound Waves</div>
+        <div class="pub-journal">Springer — Adventures in Contemporary Electromagnetic Theory (Book Chapter)</div>
+        <a href="https://doi.org/10.1007/978-3-031-24617-3_17" class="pub-link" target="_blank">↗ doi.org/10.1007/978-3-031-24617-3_17</a>
       </div>
+    </div>
 
+    <div class="pub-year-heading reveal">2022</div>
+    <div class="pub-list">
       <div class="pub-item reveal">
-        <div class="pub-year">2022</div>
-        <div class="pub-content">
-          <div class="pub-title">Thermal-hysteresis-affected surface-plasmon-polariton-wave propagation</div>
-          <div class="pub-journal">Materials Letters</div>
-          <a href="https://doi.org/10.1016/j.matlet.2022.132648" class="pub-link" target="_blank">↗ doi.org/10.1016/j.matlet.2022.132648</a>
-        </div>
+        <div class="pub-title">Thermal hysteresis in scattering by VO₂ spheres</div>
+        <div class="pub-journal">Journal of the Optical Society of America A (JOSA A)</div>
+        <a href="http://dx.doi.org/10.1364/JOSAA.463159" class="pub-link" target="_blank">↗ doi.org/10.1364/JOSAA.463159</a>
       </div>
+      <div class="pub-item reveal">
+        <div class="pub-title">Thermal-hysteresis-affected surface-plasmon-polariton-wave propagation</div>
+        <div class="pub-journal">Materials Letters</div>
+        <a href="https://doi.org/10.1016/j.matlet.2022.132648" class="pub-link" target="_blank">↗ doi.org/10.1016/j.matlet.2022.132648</a>
+      </div>
+    </div>
 
-      <div class="pub-subgroup-label reveal">Earlier Theoretical Work</div>
-
+    <div class="pub-year-heading reveal">Earlier Theoretical Work</div>
+    <div class="pub-list">
       <div class="pub-item minor reveal">
-        <div class="pub-year">2019</div>
-        <div class="pub-content">
-          <div class="pub-title">Non-uniform plane waves (ghost waves) in general anisotropic medium</div>
-          <div class="pub-journal">Optics Communications</div>
-          <a href="https://doi.org/10.1016/j.optcom.2019.124334" class="pub-link" target="_blank">↗ doi.org/10.1016/j.optcom.2019.124334</a>
-        </div>
+        <div class="pub-title">Non-uniform plane waves (ghost waves) in general anisotropic medium</div>
+        <div class="pub-journal">Optics Communications (2019)</div>
+        <a href="https://doi.org/10.1016/j.optcom.2019.124334" class="pub-link" target="_blank">↗ doi.org/10.1016/j.optcom.2019.124334</a>
       </div>
-
       <div class="pub-item minor reveal">
-        <div class="pub-year">2023</div>
-        <div class="pub-content">
-          <div class="pub-title">Continuity of Field Patterns for Exceptional Surface Waves and Exceptional Compound Waves</div>
-          <div class="pub-journal">Springer — Adventures in Contemporary Electromagnetic Theory (Book Chapter)</div>
-          <a href="https://doi.org/10.1007/978-3-031-24617-3_17" class="pub-link" target="_blank">↗ doi.org/10.1007/978-3-031-24617-3_17</a>
-        </div>
-      </div>
-
-      <div class="pub-item minor reveal">
-        <div class="pub-year">2018</div>
-        <div class="pub-content">
-          <div class="pub-title">Second-order fading statistics of massive-MIMO vehicular radio communication channels</div>
-          <div class="pub-journal">Transactions on Emerging Telecommunications Technologies</div>
-          <a href="https://doi.org/10.1002/ett.3487" class="pub-link" target="_blank">↗ doi.org/10.1002/ett.3487</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- ACADEMIC SERVICES -->
-<section id="services">
-  <div class="section-wrap">
-    <div class="section-header reveal">
-      <span class="section-number">06</span>
-      <h2 class="section-title">Academic Services</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="services-grid">
-      <div class="info-card reveal">
-        <div class="info-card-label">Journal Reviewer</div>
-        <div class="info-card-value">
-          <ul>
-            <li>Optics Express</li>
-            <li>IEEE Transactions on Antennas and Propagation (TAP)</li>
-            <li>Journal of the Optical Society of America A / B (JOSA A/B)</li>
-            <li>Applied Optics</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <p class="reveal" style="font-size:14px;color:var(--muted);margin-top:24px;">Start dates and any additional editorial, advisory, or conference-reviewer roles can be added here — just share the details.</p>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- PLATFORM SUGGESTIONS -->
-<section class="platform-section">
-  <div class="section-wrap">
-    <div class="section-header reveal">
-      <span class="section-number">07</span>
-      <h2 class="section-title">Find My Work</h2>
-      <div class="section-line"></div>
-    </div>
-    <p class="reveal" style="font-size:17px;color:var(--muted);margin-bottom:40px;max-width:680px;">Code, preprints, and research profiles.</p>
-    <div class="platform-grid">
-      <div class="platform-card reveal">
-        <div class="p-name">GitHub</div>
-        <div class="p-desc">Simulation code, AI models, and inverse-design frameworks — Hopfion dynamics, Kagome spin ice, MXene absorbers, and more.</div>
-        <div class="p-type">Code Repository</div>
-      </div>
-      <div class="platform-card reveal">
-        <div class="p-name">Google Scholar</div>
-        <div class="p-desc">A verified profile aggregating all publications with citation counts and h-index tracking.</div>
-        <div class="p-type">Citation Index</div>
-      </div>
-      <div class="platform-card reveal">
-        <div class="p-name">arXiv</div>
-        <div class="p-desc">Preprints posted for free open-access sharing in physics, electrical engineering, and CS before journal publication.</div>
-        <div class="p-type">Preprint Server</div>
-      </div>
-      <div class="platform-card reveal">
-        <div class="p-name">ResearchGate</div>
-        <div class="p-desc">Full-text papers, citation tracking, and collaborator discovery in the magnonics/photonics community.</div>
-        <div class="p-type">Academic Network</div>
-      </div>
-      <div class="platform-card reveal">
-        <div class="p-name">ORCID</div>
-        <div class="p-desc">Persistent digital identity linking research outputs, affiliations, and funding across publishers.</div>
-        <div class="p-type">Researcher ID</div>
-      </div>
-      <div class="platform-card reveal">
-        <div class="p-name">Zenodo</div>
-        <div class="p-desc">Archive datasets, code, and simulation files alongside papers with DOIs — ideal for MuMax3 or COMSOL outputs.</div>
-        <div class="p-type">Data Repository</div>
+        <div class="pub-title">Second-order fading statistics of massive-MIMO vehicular radio communication channels</div>
+        <div class="pub-journal">Transactions on Emerging Telecommunications Technologies (2018)</div>
+        <a href="https://doi.org/10.1002/ett.3487" class="pub-link" target="_blank">↗ doi.org/10.1002/ett.3487</a>
       </div>
     </div>
   </div>
@@ -1330,7 +652,7 @@
 <section id="contact">
   <div class="section-wrap">
     <div class="section-header reveal">
-      <span class="section-number">08</span>
+      <span class="section-number">04</span>
       <h2 class="section-title">Contact</h2>
       <div class="section-line"></div>
     </div>
@@ -1380,14 +702,12 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <p>© 2024 Dr. Waleed I. Waseer · UESTC, China</p>
   <p>BEng · MEng · PHD · Machine Learning for Magnonics & Nanophotonics</p>
 </footer>
 
 <script>
-// ── WAVE CANVAS ──
 const canvas = document.getElementById('wave-canvas');
 const ctx = canvas.getContext('2d');
 let W, H, t = 0;
@@ -1424,7 +744,6 @@ function drawWaves() {
 }
 drawWaves();
 
-// ── SCROLL REVEAL ──
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((e, i) => {
